@@ -7,3 +7,9 @@
   (click)= "onCreateServer()"
   >Add server</button>
 <p [innerText]="serverCreateStatus"></p>
+<p>Server name: {{serverName}}</p>
+<input 
+  type="text" 
+  class="form-control"
+  (input)="onUpdateServerName($event)"
+  >
