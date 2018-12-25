@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverCreateStatus = 'No server was created';
-  serverName = 'Server One';
+  serverName = 'Server One way binding';
+  serverName02 = 'Server Two way binding';
   constructor() {
     setTimeout(() => {
       this.allowNewServer = true;
