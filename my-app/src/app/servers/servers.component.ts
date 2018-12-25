@@ -10,6 +10,7 @@ export class ServersComponent implements OnInit {
   serverCreateStatus = 'No server was created';
   serverName = 'Server One way binding';
   serverName02 = 'Server Two way binding';
+  isServerCreated = false;
   constructor() {
     setTimeout(() => {
       this.allowNewServer = true;
@@ -20,6 +21,7 @@ export class ServersComponent implements OnInit {
   }
 
   onCreateServer() {
+    this.isServerCreated = true;
     this.serverCreateStatus = 'Server was created';
   }
 
