@@ -18,4 +18,4 @@
   <p>No server here</p>
 </ng-template>
 
-<app-server *ngFor="let server of serverList"></app-server>
+<app-server *ngFor="let server of serverList; let i = index" [ngStyle]="{'color' : 'white'}"></app-server>
