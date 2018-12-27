@@ -7,13 +7,15 @@ import { ServerComponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
 import { FormsModule } from '@angular/forms';
 import { HierarchyComponent } from './hierarchy/hierarchy.component';
+import { CompanyComponent } from './company/company.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ServerComponent,
     ServersComponent,
-    HierarchyComponent
+    HierarchyComponent,
+    CompanyComponent
   ],
   imports: [
     BrowserModule,
