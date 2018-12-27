@@ -8,6 +8,7 @@ import { ServersComponent } from './servers/servers.component';
 import { FormsModule } from '@angular/forms';
 import { HierarchyComponent } from './hierarchy/hierarchy.component';
 import { CompanyComponent } from './company/company.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CompanyComponent } from './company/company.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

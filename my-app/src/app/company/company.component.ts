@@ -19,25 +19,15 @@ export class CompanyComponent implements OnInit {
     reference: ''
   };
 
-  // mockData = [
-  //   {
-  //     name: 'P-001',
-  //     reference: 'Product 01'
-  //   },
-  //   {
-  //     name: 'P-002',
-  //     reference: 'Product 02'
-  //   },
-  //   {
-  //     name: 'P-003',
-  //     reference: 'Product 03'
-  //   }
-  // ];
-  mockData = Object.values(this.companyService);
-
+  private mockData: any[];
   constructor(private companyService: CompanyService) {}
 
   ngOnInit() {
+    this.getAllCompanies();
+  }
+
+  getAllCompanies() {
+    this.companyService.getAllCompanies().subscribe(data => this.mockData = data);
   }
 
   onSubmit() {
