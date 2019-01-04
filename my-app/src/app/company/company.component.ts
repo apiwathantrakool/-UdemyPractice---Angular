@@ -1,6 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { CompanyService } from '../services/company.service';
 
 @Component({
   selector: 'app-company',
@@ -19,15 +18,23 @@ export class CompanyComponent implements OnInit {
     reference: ''
   };
 
-  private mockData: any[];
-  constructor(private companyService: CompanyService) {}
+    mockData = [
+    {
+      name: 'P-001',
+      reference: 'Product 01'
+    },
+    {
+      name: 'P-002',
+      reference: 'Product 02'
+    },
+    {
+      name: 'P-003',
+      reference: 'Product 03'
+    }
+  ];
+  constructor() {}
 
   ngOnInit() {
-    this.getAllCompanies();
-  }
-
-  getAllCompanies() {
-    this.companyService.getAllCompanies().subscribe(data => this.mockData = data);
   }
 
   onSubmit() {

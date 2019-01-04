@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
 import { FormsModule } from '@angular/forms';
-import { HierarchyComponent } from './hierarchy/hierarchy.component';
 import { CompanyComponent } from './company/company.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -15,7 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     ServerComponent,
     ServersComponent,
-    HierarchyComponent,
     CompanyComponent
   ],
   imports: [
