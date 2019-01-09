@@ -25,9 +25,9 @@ export class ServerComponent implements OnInit {
   }
 
   onEdit() {
-    this.router.navigate(['/servers', this.server.id, 'edit']);
-    // Another way to navigate
-    // this.router.navigate(['edit'], {relativeTo: this.route});
+    // this.router.navigate(['/servers', this.server.id, 'edit']);
+    // Use this way is better because the param will be lost when it was send to the another component.
+    this.router.navigate(['edit'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
   }
 
 }
