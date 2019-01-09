@@ -1,4 +1,4 @@
-import { LoggingService } from './../logging.service';
+import { LoggingService } from '../services/logging.service';
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
