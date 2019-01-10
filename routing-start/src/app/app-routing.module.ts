@@ -25,7 +25,7 @@ const appRoutes: Routes = [
       { path: ':id', component: ServerComponent },
       { path: ':id/edit', component: EditServerComponent, canDeactivate: [CanDeactivateGuard] }
     ] },
-    { path: 'not-found', component: PageNotFoundComponent },
+    { path: 'not-found', component: PageNotFoundComponent, data: {message: 'Page not found !!'} },
     // PageNotFoundComponent need to be the last child of this array.
     { path: '**', redirectTo: '/not-found' }
   ];

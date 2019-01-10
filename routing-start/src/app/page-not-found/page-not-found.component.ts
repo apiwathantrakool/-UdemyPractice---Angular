@@ -1,3 +1,4 @@
+import { ActivatedRoute, Data } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page-not-found.component.css']
 })
 export class PageNotFoundComponent implements OnInit {
-
-  constructor() { }
+  message: string;
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.message = this.route.snapshot.data['message'];
+    this.route.data.subscribe(
+      (data: Data) => {
+        this.message = data['message'];
+      }
+    );
   }
 
 }
