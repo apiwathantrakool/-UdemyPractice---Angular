@@ -12,10 +12,18 @@ export class UserComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    // Observeable will receive 3 arguments (data, error, complete).
     this.route.params
       .subscribe(
         (params: Params) => {
+          // Data argument
           this.id = +params['id'];
+        },
+        () => {
+          // Error argument
+        },
+        () => {
+          // Complete argument
         }
       );
   }
