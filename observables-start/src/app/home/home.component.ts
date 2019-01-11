@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Observer } from 'rxjs-compat';
 // tslint:disable-next-line:import-blacklist
 import 'rxjs/Rx';
@@ -8,17 +9,19 @@ import 'rxjs/Rx';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-
+export class HomeComponent implements OnInit, OnDestroy {
+  simpleObsSubscription: Subscription;
+  customObsSubscription: Subscription;
+  customObsSubscription2: Subscription;
   constructor() { }
 
   ngOnInit() {
-    // const myNumbers = Observable.interval(1000);
-    // myNumbers.subscribe(
-    //   (number: number) => {
-    //     console.log(number);
-    //   }
-    // );
+    const myNumbers = Observable.interval(1000);
+    this.simpleObsSubscription = myNumbers.subscribe(
+      (number: number) => {
+        console.log(number);
+      }
+    );
 
 // Subscribe with the data and error arguments.
     const myObservable = Observable.create(
@@ -43,7 +46,7 @@ export class HomeComponent implements OnInit {
       }
     );
 
-    myObservable.subscribe(
+    this.customObsSubscription = myObservable.subscribe(
       (data: string) => { console.log(data); },
       (error: string) => { console.log(error); },
       () => { console.log('complete'); },
@@ -73,11 +76,17 @@ export class HomeComponent implements OnInit {
     );
 
 // Subscribe with the data and complete arguments.
-    myObservable2.subscribe(
+    this.customObsSubscription2 = myObservable2.subscribe(
       (data: string) => { console.log(data); },
       (error: string) => { console.log(error); },
       () => { console.log('complete'); },
     );
+  }
+
+  ngOnDestroy() {
+    this.simpleObsSubscription.unsubscribe();
+    this.customObsSubscription.unsubscribe();
+    this.customObsSubscription2.unsubscribe();
   }
 
 }
