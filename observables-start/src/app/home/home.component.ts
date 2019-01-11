@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs-compat';
+// tslint:disable-next-line:import-blacklist
+import 'rxjs/Rx';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +13,12 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    const myNumbers = Observable.interval(1000);
+    myNumbers.subscribe(
+      (number: number) => {
+        console.log(number);
+      }
+    );
   }
 
 }
