@@ -8,6 +8,11 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
   @ViewChild('dataForm') dataForm: NgForm;
+  defaultDataInput = {
+    username: 'Nekky',
+    email: 'example@mail.com',
+    secret: 'pet'
+  };
 
   suggestUserName() {
     const suggestedName = 'Superuser';
