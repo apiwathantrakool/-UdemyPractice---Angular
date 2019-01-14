@@ -25,6 +25,12 @@
         <button class="btn btn-primary" type="submit" [disabled]="!dataForm.valid">Submit</button>
         <p *ngIf="!userDataRef.valid">User data is invalid.</p>
       </form>
+      <div *ngIf="isSubmited">
+        <h3>User Data</h3>
+        <p>Username: {{ submitedData.username }}</p>
+        <p>Email: {{ submitedData.email }}</p>
+        <p>Secret: {{ submitedData.secret }}</p>
+      </div>
     </div>
   </div>
 </div>

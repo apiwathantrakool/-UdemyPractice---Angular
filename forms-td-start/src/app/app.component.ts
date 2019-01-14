@@ -14,6 +14,14 @@ export class AppComponent implements OnInit {
     secret: 'pet'
   };
 
+  submitedData = {
+    username: '',
+    email: '',
+    secret: ''
+  };
+
+  isSubmited = false;
+
   ngOnInit() {
     // User the console.log(this.dataForm); to see the data schema.
     console.log(this.dataForm);
@@ -42,5 +50,10 @@ export class AppComponent implements OnInit {
   onSubmit(dataForm: NgForm) {
     console.log(dataForm );
     console.log(this.dataForm );
+    this.isSubmited = true;
+    this.submitedData.username = this.dataForm.value.userData.username;
+    this.submitedData.email = this.dataForm.value.userData.email;
+    this.submitedData.secret = this.dataForm.value.secret;
+
   }
 }
