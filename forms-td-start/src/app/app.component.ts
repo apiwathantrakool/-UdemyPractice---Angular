@@ -54,6 +54,6 @@ export class AppComponent implements OnInit {
     this.submitedData.username = this.dataForm.value.userData.username;
     this.submitedData.email = this.dataForm.value.userData.email;
     this.submitedData.secret = this.dataForm.value.secret;
-
+    this.dataForm.reset();
   }
 }
