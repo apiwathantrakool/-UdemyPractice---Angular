@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <form (ngSubmit) = "onSubmit(dataForm)" #dataForm="ngForm">
-        <div id="user-data">
+        <div id="user-data" ngModelGroup="userData" #userDataRef="ngModelGroup">
           <div class="form-group">
             <label for="username">Username</label>
             <input type="text" id="username" class="form-control" name="username" required [(ngModel)]="defaultDataInput.username">
@@ -22,6 +22,7 @@
           </select>
         </div>
         <button class="btn btn-primary" type="submit" [disabled]="!dataForm.valid">Submit</button>
+        <p *ngIf="!userDataRef.valid">User data is invalid.</p>
       </form>
     </div>
   </div>
