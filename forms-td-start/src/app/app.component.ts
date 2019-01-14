@@ -15,11 +15,28 @@ export class AppComponent implements OnInit {
   };
 
   ngOnInit() {
+    // User the console.log(this.dataForm); to see the data schema.
     console.log(this.dataForm);
   }
 
-  suggestUserName() {
-    const suggestedName = 'Superuser';
+  settingData() {
+    // This way is used for setting all values.
+    this.dataForm.setValue({
+      userData: {
+        username: 'Setting',
+        email: '',
+      },
+      secret: 'pet'
+    });
+  }
+
+  patchingData() {
+    // This way is used for setting some value.
+    this.dataForm.form.patchValue({
+      userData: {
+        username: 'Patching'
+      }
+    });
   }
 
   onSubmit(dataForm: NgForm) {

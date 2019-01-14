@@ -7,7 +7,8 @@
             <label for="username">Username</label>
             <input type="text" id="username" class="form-control" name="username" required [(ngModel)]="defaultDataInput.username">
           </div>
-          <button class="btn btn-default" type="button">Suggest an Username</button>
+          <button class="btn btn-default" type="button" (click)="settingData()">Setting Data</button>
+          <button class="btn btn-default" type="button" (click)="patchingData()">Patching Data</button>
           <div class="form-group">
             <label for="email">Mail</label>
             <input type="email" id="email" class="form-control" name="email" required email #email="ngModel" [(ngModel)]="defaultDataInput.email">
