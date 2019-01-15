@@ -26,16 +26,36 @@ export class AppComponent implements OnInit {
         new FormControl('Boxing')
       ])
     });
+
     this.signupForm.valueChanges.subscribe(
       (value) => {
         console.log(value);
       }
     );
+
     this.signupForm.statusChanges.subscribe(
       (value) => {
         console.log(value);
       }
     );
+
+    // Comment setValue or patchValue
+    this.signupForm.setValue({
+      'userData': {
+        'username': 'NK',
+        'email': 'nekky@eiei.com'
+      },
+      'gender': 'male',
+      'hobbies': []
+    });
+
+    this.signupForm.patchValue({
+      'userData': {
+        'username': 'NKk',
+      },
+      'gender': 'female',
+    });
+
   }
 
   onSubmit() {
