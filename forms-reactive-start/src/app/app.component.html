@@ -26,6 +26,12 @@
             class="form-control"
             formControlName="email"
             >
+            <span *ngIf="!signupForm.get('userData.email').valid && signupForm.get('userData.email').touched">
+              <!-- This will error because the function let the promise return null. -->
+              <span *ngIf="signupForm.get('userData.email').errors['emilIsForbidden']">
+              Inverify email
+            </span>
+          </span>
         </div>
       </div>
         <div class="radio" *ngFor="let gender of genders">
