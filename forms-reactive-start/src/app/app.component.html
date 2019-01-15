@@ -11,7 +11,12 @@
             class="form-control"
             formControlName="username"
             >
-            <span *ngIf="!signupForm.get('userData.username').valid && signupForm.get('userData.username').touched">Invalid username</span>
+            <span *ngIf="!signupForm.get('userData.username').valid && signupForm.get('userData.username').touched">
+              <!-- User error form the control -->
+              <span *ngIf="signupForm.get('userData.username').errors['required']">Invalid username</span>
+              <!-- User error form the custom error -->
+              <span *ngIf="signupForm.get('userData.username').errors['nameIsForbidden']">Inverify username</span>
+          </span>
         </div>
         <div class="form-group">
           <label for="email">email</label>
