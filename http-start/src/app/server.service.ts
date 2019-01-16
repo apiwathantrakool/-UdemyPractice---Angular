@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs-compat';
 import { Injectable } from '@angular/core';
 import { Headers , Http, Response } from '@angular/http';
 // tslint:disable-next-line:import-blacklist
@@ -23,6 +24,11 @@ export class ServerService {
                     // This "response.json()" will auto transform raw-json to json-object.
                     const data = response.json();
                     return data;
+                }
+            )
+            .catch(
+                (error: Response) => {
+                    return Observable.throw(error);
                 }
             );
     }
