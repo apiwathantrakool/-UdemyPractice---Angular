@@ -11,6 +11,7 @@ export class ServerService {
         // add "data.json" to send the json.
         return this.http.post('https://angular-training-d4693.firebaseio.com/data.json', servers,
             {headers: headers});
+        // The Put request will override the old data but the Post wil create a new one.
     }
 
     getServers() {
