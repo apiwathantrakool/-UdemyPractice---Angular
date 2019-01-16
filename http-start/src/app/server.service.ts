@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Headers , Http } from '@angular/http';
+import { Headers , Http, Response } from '@angular/http';
+// tslint:disable-next-line:import-blacklist
+import 'rxjs/Rx';
 
 @Injectable()
 export class ServerService {
@@ -15,7 +17,14 @@ export class ServerService {
     }
 
     getServers() {
-        return this.http.get('https://angular-training-d4693.firebaseio.com/data.json');
+        return this.http.get('https://angular-training-d4693.firebaseio.com/data.json')
+            .map(
+                (response: Response) => {
+                    // This "response.json()" will auto transform raw-json to json-object.
+                    const data = response.json();
+                    return data;
+                }
+            );
     }
 
 }
