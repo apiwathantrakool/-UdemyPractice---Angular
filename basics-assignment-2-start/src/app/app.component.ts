@@ -6,4 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  username: string;
+  result: string;
+
+  onSubmit() {
+    this.result = this.username;
+    this.username = '';
+  }
+
+  getUsername() {
+    return this.result;
+  }
 }
