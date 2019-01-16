@@ -10,4 +10,17 @@
       </ol>
     </div>
   </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="onClick()">Display Details</button>
+      <p *ngIf="showDetail">{{detail}}</p>
+      <p 
+        *ngFor="let numCount of countList"
+        [ngClass]="{'whiteStyle': countList >= 5}"
+        [ngStyle]="{'backgroundColor': numCount >= 5 ? 'blue' : 'white', 
+                    'color': numCount >= 5 ? 'white' : 'black'}"
+        >{{ numCount }}</p>
+    </div>
+  </div>
 </div>
