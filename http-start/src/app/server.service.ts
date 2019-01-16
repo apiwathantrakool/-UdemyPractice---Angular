@@ -13,4 +13,8 @@ export class ServerService {
             {headers: headers});
     }
 
+    getServers() {
+        return this.http.get('https://angular-training-d4693.firebaseio.com/data.json');
+    }
+
 }

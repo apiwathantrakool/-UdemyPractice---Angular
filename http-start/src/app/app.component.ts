@@ -1,5 +1,6 @@
 import { ServerService } from './server.service';
 import { Component } from '@angular/core';
+import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-root',
@@ -38,6 +39,19 @@ export class AppComponent {
       .subscribe(
         (response) =>
           console.log(response),
+        (error) =>
+          console.log(error)
+      );
+  }
+
+  onGet() {
+    this.serverService.getServers()
+      .subscribe(
+        (response: Response) => {
+          // This "response.json()" will auto transform raw-json to json-object.
+          const data = response.json();
+          console.log(data);
+         },
         (error) =>
           console.log(error)
       );
