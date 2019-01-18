@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game-control.component.css']
 })
 export class GameControlComponent implements OnInit {
-
+  count = 0;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onStart() {
+    setInterval(
+      () => {
+        this.count++;
+        console.log(this.count);
+      }, 1000
+    );
   }
 
 }
