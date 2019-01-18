@@ -6,4 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  oddNumberList: number[] = [];
+  evenNumberList: number[] = [];
+
+  getCount(countEmit: number) {
+    if (countEmit % 2 === 0) {
+      this.evenNumberList.push(countEmit);
+    } else {
+      this.oddNumberList.push(countEmit);
+    }
+  }
 }
