@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <!--
+      
           Create a Form with the following Controls and Validators
           1) Project Name (should not be empty)
           2) Mail (should not be a empty and a valid email)
@@ -13,7 +13,40 @@
           Also implement that Validator as an async Validator (replace the other one)
 
           Upon submitting the form, simply print the value to the console
-      -->
+     
     </div>
   </div>
+</div>
+<hr>
+<div>
+  <form [formGroup]="dataInputs">
+    <div>
+      <label for="name">Project Name: </label>
+        <input class="form-control" type="text" name="name" id="name" formControlName="name">
+        <!-- This span still error, because it require errors but the errors are null in some case. -->
+        <!-- So providing the errors in the back end is better. -->
+        
+        <!-- <span *ngIf="!dataInputs.get('name').valid">
+            <span *ngIf="dataInputs.get('name').errors['required']">Name Empty !!!</span>
+            <span *ngIf="dataInputs.get('name').errors['nameIsForbidden']">Name Forbidden !!!</span>
+            <span *ngIf="dataInputs.get('name').errors['nameIsForbiddenAsync']">Name Forbidden Async !!!</span>
+        </span> -->
+    </div>
+    <div>
+      <label for="email">Email: </label>
+        <input class="form-control" type="text" name="email" id="email" formControlName="email">
+        <span *ngIf="!dataInputs.get('email').valid">
+            <span *ngIf="dataInputs.get('email').errors['required']">Email Error !!!</span>
+            <span *ngIf="dataInputs.get('email').errors['emailIsForbidden']">Email Forbidden !!!</span>
+            <span *ngIf="dataInputs.get('email').errors['email']">Email Bad Format !!!</span>
+        </span>
+    </div>
+    <div>
+      <label for="status">Status: </label>
+      <select class="form-control" name="stauts" id="stauts" formControlName="status">
+          <option *ngFor="let option of statusOptions" [value]="option">{{ option }}</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+  </form>
 </div>
