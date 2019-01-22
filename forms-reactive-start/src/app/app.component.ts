@@ -62,7 +62,7 @@ export class AppComponent implements OnInit {
     console.log(this.signupForm);
   }
 
-  onAddHooby() {
+  onAddHobby() {
     const control = new FormControl(null, Validators.required);
     // <FormArray> to tell the TS that this value is the FormArray type.
     (<FormArray>this.signupForm.get('hobbies')).push(control);

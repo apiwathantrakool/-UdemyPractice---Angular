@@ -11,6 +11,8 @@
             class="form-control"
             formControlName="username"
             >
+            <!-- Need to set the error to group of conditions like this.
+            Otherwise it some error data will be null, because it is cheked everytimes. -->
             <span *ngIf="!signupForm.get('userData.username').valid && signupForm.get('userData.username').touched">
               <!-- User error form the control -->
               <span *ngIf="signupForm.get('userData.username').errors['required']">Invalid username</span>
@@ -45,7 +47,7 @@
         </div>
         <div formArrayName="hobbies">
           <h4>Your Hobies</h4>
-          <button class="btn btn-default" type="button" (click)="onAddHooby()">Add Hobby</button>
+          <button class="btn btn-default" type="button" (click)="onAddHobby()">Add Hobby</button>
           <div 
             class="form-group"
             *ngFor="let hobbyControl of signupForm.get('hobbies').controls; let i = index"
