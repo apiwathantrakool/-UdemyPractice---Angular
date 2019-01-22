@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  isRevert = false;
+  isSort = false;
   appStatus = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve('stable');
@@ -52,5 +54,13 @@ export class AppComponent {
       status: 'stable',
       started: new Date(15, 1, 2017)
     });
+  }
+
+  onRevert() {
+    this.isRevert = true;
+  }
+
+  onSort() {
+    this.isSort = true;
   }
 }
