@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Response } from '@angular/http';
+// tslint:disable-next-line:import-blacklist
 import 'rxjs/Rx';
 
 import { RecipeService } from '../recipes/recipe.service';
 import { Recipe } from '../recipes/recipe.model';
 import { AuthService } from '../auth/auth.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class DataStorageService {
-  constructor(private http: Http,
+  constructor(private http: HttpClient,
               private recipeService: RecipeService,
               private authService: AuthService) {
   }
@@ -22,10 +24,10 @@ export class DataStorageService {
   getRecipes() {
     const token = this.authService.getToken();
 
-    this.http.get('https://angular-training-d4693.firebaseio.com/recipe.json?auth=' + token)
+    this.http.get<Recipe[]>('https://angular-training-d4693.firebaseio.com/recipe.json?auth=' + token)
       .map(
-        (response: Response) => {
-          const recipes: Recipe[] = response.json();
+        // Default HttpClient will auto extract the body of response
+        (recipes) => {
           for (let recipe of recipes) {
             if (!recipe['ingredients']) {
               recipe['ingredients'] = [];
