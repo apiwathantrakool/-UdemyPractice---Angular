@@ -21,6 +21,9 @@ export class AppComponent {
     }
   ];
 
+  companyList = [];
+  isShowCompanyList = false;
+
   constructor(private serverService: ServerService) {}
 
   onAddServer(name: string) {
@@ -54,5 +57,47 @@ export class AppComponent {
         (error) =>
           console.log(error)
       );
+  }
+
+  getCompanyList() {
+    this.serverService.getCompanyList()
+      .subscribe(
+        (companyList: any[]) => {
+          console.log(companyList);
+          this.companyList = companyList;
+        }
+      );
+  }
+
+  onClickShowCompanyList() {
+    this.isShowCompanyList = true;
+    this.getCompanyList();
+  }
+
+  onClickAddCompany() {
+    this.serverService.addCompany(this.companyList)
+      .subscribe(
+        (response: any) => {
+          console.log(response);
+        }
+      );
+  }
+  
+  onClickRemoveCompany() {
+    this.serverService.removeCompany(this.companyList)
+    .subscribe(
+      (response: any) => {
+        console.log(response);
+      }
+    );
+  }
+
+  onClickUpdateCompany() {
+    this.serverService.updateCompany(this.companyList)
+    .subscribe(
+      (response: any) => {
+        console.log(response);
+      }
+    );
   }
 }

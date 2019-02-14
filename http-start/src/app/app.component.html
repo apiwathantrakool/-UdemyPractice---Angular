@@ -12,4 +12,24 @@
       </ul>
     </div>
   </div>
+  <button (click)="onClickShowCompanyList()">
+    Show Company List
+  </button>
+
+  <button (click)="onClickAddCompany()">
+    Add Company
+  </button>
+
+  <button (click)="onClickRemoveCompany()">
+    Remove Company
+  </button>
+
+  <button (click)="onClickUpdateCompany()">
+    Update Company
+  </button>
+ 
+    <h5 *ngFor="let company of companyList">
+      {{company.name}}
+    </h5>
+ 
 </div>
