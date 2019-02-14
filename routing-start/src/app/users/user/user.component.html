@@ -1,3 +1,26 @@
 <p>User with ID {{user.id}} loaded.</p>
 <p>User name is {{user.name}}.</p>
 <a [routerLink]="['/users', 10, 'Anna']">Load Anna (10)</a>
+
+
+<!-- For HTTP request -->
+<button (click)="onClickShowCompanyList()">
+    Show Company List
+  </button>
+
+  <button (click)="onClickAddCompany()">
+    Add Company
+  </button>
+
+  <button (click)="onClickRemoveCompany()">
+    Remove Company
+  </button>
+
+  <button (click)="onClickUpdateCompany()">
+    Update Company
+  </button>
+ 
+    <h5 *ngFor="let company of companyList">
+      {{company.name}}
+    </h5>
+<!-- For HTTP request -->
